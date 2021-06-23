@@ -26,12 +26,12 @@ public class WordGenerator {
 		
 		String maskedWord = randomWord;
 		
-		for (int i = 0; i <= numberOfHiddenWords; i++) {
+		for (int i = 0; i < numberOfHiddenWords; i++) {
 			
 			int randomNumber = randomNumberGenerator(max,0);
 			char charToMask = randomWord.charAt(randomNumber);
 			
-			maskedWord = randomWord.replace(charToMask, '_');
+			maskedWord = maskedWord.replace(charToMask, '_');
 		}
 				
 		

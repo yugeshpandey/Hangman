@@ -22,11 +22,11 @@ public class HangmanMain {
 		home.printStickFigure();
 		System.out.println("\n");
 		String startResponse = inputHelper.promptUser("Press Y to begin ");
-		
-		
+				
 		if(startResponse.equals("Y") || startResponse.equals("y")) {
 						
 			System.out.println(maskedWord);
+			
 		} else {
 			System.out.println("Exiting Game");
 		}
