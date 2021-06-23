@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.game.home.Home;
 import com.game.home.helper.InputHelper;
+import com.game.logic.GameLogic;
 import com.game.wordGenerator.TopicList;
 import com.game.wordGenerator.WordGenerator;
 
@@ -14,6 +15,7 @@ public class HangmanMain {
 		Home home = new Home();
 		InputHelper inputHelper = new InputHelper();
 		WordGenerator newWord = new WordGenerator();
+		GameLogic gameLogic = new GameLogic();
 		String[] chosenTopic = TopicList.getTopic(1); //Array of chosen list of words
 			
 		String randomWord= newWord.generateRandomWord(chosenTopic);
@@ -23,21 +25,20 @@ public class HangmanMain {
 		home.welcome();
 		home.printStickFigure();
 		System.out.println("\n");
-		String startResponse = inputHelper.promptUser("Press Y to begin ");
-				
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Press Y to begin:");
+		String startResponse = keyboard.nextLine();
+						
 		if(startResponse.equals("Y") || startResponse.equals("y")) {
 						
 			System.out.println(maskedWord);
-			System.out.println("Guess a letter: ");
+			String userInput = gameLogic.promptQuestion();
 						
-//			int var1 = userInput.compareTo(randomWord);
-//			
-//			if (var1 == 0) {
-//				System.out.println("Correct");
-//			} else {
-//				System.out.println("False");
-//			}
-					 
+			boolean isMatch; 
+			isMatch = gameLogic.isWordMatch(randomWord, userInput);
+			
+			System.out.println(isMatch);
+								 
 			
 			
 			
