@@ -3,7 +3,7 @@ package com.game.wordGenerator;
 
 public class WordGenerator {
 
-	static int numberOfMaskedWords = 2;//number of words that are masked
+	static int numberOfMaskedWords = 3;//number of words that are masked
 	
 	//generate a random number between variables "max" and "min".
 	public int randomNumberGenerator(int max, int min) {

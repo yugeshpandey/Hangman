@@ -1,7 +1,5 @@
 package com.game.logic;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -28,28 +26,29 @@ public class GameLogic {
 		return userInput;
 	}
 	
-	//ALLIGATOR, L, _ _ _IGATOR
-	public String unmaskWord(String originalWord, String rightInput, String maskedWord) {
-		int wordLength = originalWord.length(); // 9
-		String inputCapitals = rightInput.toUpperCase(); //"L"
-		char inputChar = inputCapitals.charAt(0);//'L'
-		String unmaskedWord = maskedWord;  
+	// This method unmasks the masked word using the correct user input
+	public String unmaskWord(String originalWords, String rightInput, String maskedWord) {
+
+		char[] originalWordArray = originalWords.toCharArray();
+		char[] maskedWordArray = maskedWord.toCharArray();
+		char rightInputChar = rightInput.charAt(0);
 		
-		ArrayList<Integer> charLocations = new ArrayList<Integer>();
-		char testChar;
+		for (int i = 0; i < originalWordArray.length; i++) {
+			
+			if (originalWordArray[i] == Character.toLowerCase(rightInputChar) 
+					|| originalWordArray[i] == Character.toUpperCase(rightInputChar)) {
 				
-		for (int i = 0; i < wordLength ; i++) {
-			testChar = originalWord.charAt(i);
-			int charMatch = Character.compare(inputChar, testChar);
-			if (charMatch == 0) {
-				charLocations.add(i);
+				maskedWordArray[i] = Character.toUpperCase(rightInputChar);
+				
 			}
-					
+			
+			
 		}
 		
-						
-								
-		return unmaskedWord;
+
+		return String.valueOf(maskedWordArray);
+				
+	
 	}
 		
 
