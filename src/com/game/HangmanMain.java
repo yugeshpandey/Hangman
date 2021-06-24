@@ -3,7 +3,6 @@ package com.game;
 import java.util.Scanner;
 
 import com.game.home.Home;
-import com.game.home.helper.InputHelper;
 import com.game.logic.GameLogic;
 import com.game.wordGenerator.TopicList;
 import com.game.wordGenerator.WordGenerator;
@@ -23,29 +22,31 @@ public class HangmanMain {
 
 		// Welcome screen
 		home.welcome();
-		home.printStickFigure();
+		//home.printStickFigure();
 		System.out.println("\n");
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Press Y to begin:");
 		String startResponse = keyboard.nextLine();
-
+		
 		if (startResponse.equals("Y") || startResponse.equals("y")) {
 
 			System.out.println(maskedWord);
 			String userInput = gameLogic.promptQuestion();
+			keyboard.close();
 
 			boolean isMatch;
 			isMatch = gameLogic.isWordMatch(randomWord, userInput);
 
 			if (isMatch) {
 				String unmaskedWord = gameLogic.unmaskWord(randomWord, userInput, maskedWord);
+				System.out.println("Correct!");
 				System.out.println(unmaskedWord);
-			}
+				}
 
 		} else {
 			System.out.println("Exiting Game");
 		}
 
 	}
-
+	
 }
