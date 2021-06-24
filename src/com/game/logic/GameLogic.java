@@ -1,5 +1,7 @@
 package com.game.logic;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameLogic {
@@ -24,6 +26,30 @@ public class GameLogic {
 		keyboard.close();
 		
 		return userInput;
+	}
+	
+	//ALLIGATOR, L, _ _ _IGATOR
+	public String unmaskWord(String originalWord, String rightInput, String maskedWord) {
+		int wordLength = originalWord.length(); // 9
+		String inputCapitals = rightInput.toUpperCase(); //"L"
+		char inputChar = inputCapitals.charAt(0);//'L'
+		String unmaskedWord = maskedWord;  
+		
+		ArrayList<Integer> charLocations = new ArrayList<Integer>();
+		char testChar;
+				
+		for (int i = 0; i < wordLength ; i++) {
+			testChar = originalWord.charAt(i);
+			int charMatch = Character.compare(inputChar, testChar);
+			if (charMatch == 0) {
+				charLocations.add(i);
+			}
+					
+		}
+		
+						
+								
+		return unmaskedWord;
 	}
 		
 
