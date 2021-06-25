@@ -2,20 +2,23 @@ package com.game.home;
 
 public class Home {
 	
-	private String head = "O";
+	private String head = " O";
 	private String leftArm = "/";
-	private String rightArm = "\\";
-	private String body = "|";
+	private String rightArm = " \\";
+	private String body = " |";
 	private String leftFoot = "/";
-	private String rightFoot = "\\";
+	private String rightFoot = " \\";
 	
-	public void printStickFigure() {
-		System.out.println(" " + head);
-		System.out.print(leftArm);
-		System.out.println(" " + rightArm);
-		System.out.println(" " + body);
-		System.out.print(leftFoot);
-		System.out.print(" " + rightFoot);
+	private String[] bodyParts = {head, leftArm, rightArm, body, leftFoot,rightFoot};
+	
+	public void printStickFigure(int livesLeft) {
+		for (int i = 0; i < livesLeft; i++ ) {
+			if (i == 1 || i== 4) {
+				System.out.print(bodyParts[i]);
+			} else {
+				System.out.println(bodyParts[i]);
+			}
+		}
 			
 	}
 	
