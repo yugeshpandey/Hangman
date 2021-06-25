@@ -10,7 +10,7 @@ public class HangmanMain {
 		Home home = new Home();
 		// Welcome screen
 		home.welcome();
-		home.printStickFigure();
+		//home.printStickFigure(livesLeft);
 		System.out.println("\n");
 
 		GameLogic gameLogic = new GameLogic();

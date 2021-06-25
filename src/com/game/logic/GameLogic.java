@@ -2,6 +2,7 @@ package com.game.logic;
 
 import java.util.Scanner;
 
+import com.game.home.Home;
 import com.game.wordGenerator.TopicList;
 import com.game.wordGenerator.WordGenerator;
 
@@ -9,6 +10,7 @@ public class GameLogic {
 
 	private Scanner keyboard = new Scanner(System.in);
 	WordGenerator newWord = new WordGenerator();
+	Home home = new Home();
 
 	public GameLogic() {
 
@@ -31,7 +33,7 @@ public class GameLogic {
 
 			while (livesLeft != 0 && isGameWin != true) {
 
-				char userInput = promptQuestionChar("Type your guess: ");
+				char userInput = promptQuestionChar("\nType your guess: ");
 
 				isMatch = isWordMatch(randomWord, userInput);
 				maskedWord = unmaskWord(randomWord, userInput, maskedWord);
@@ -42,7 +44,9 @@ public class GameLogic {
 
 				} else {
 					System.out.println("Incorrect!");
+					System.out.println(maskedWord);
 					livesLeft = livesLeft - 1;
+					home.printStickFigure(livesLeft);
 				}
 
 				if (maskedWord.equals(randomWord)) {
